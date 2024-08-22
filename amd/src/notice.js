@@ -6,8 +6,8 @@
  */
 
 define(
-    ['jquery', 'core/ajax', 'core/modal_factory', 'local_sitenotice/modal_notice'],
-    function ($, ajax, ModalFactory, ModalNotice) {
+    ['jquery', 'core/ajax', 'local_sitenotice/modal_notice'],
+    function($, ajax, ModalNotice) {
 
         var notices = {};
         var modal;
@@ -33,13 +33,13 @@ define(
         /**
          * Show next notice in the modal.
          */
-        var nextNotice = function () {
+        var nextNotice = function() {
             var nextnotice = getNotice();
             if (nextnotice == false) {
                 return;
             }
             if (typeof modal === 'undefined') {
-                ModalFactory.create({
+                ModalNotice.create({
                     type: ModalNotice.TYPE,
                     title: nextnotice.title,
                     body: nextnotice.content,
